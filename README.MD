@@ -43,8 +43,8 @@ A Secretaria de Esportes faz o monitoramento das quadras por documentação escr
 - Instale o Node.js.
 - Instale o Express.js.
 - Crie um banco de dados chamado "quadras".
-- Acesse o arquivo "backend/server.js" e altere a senha do banco de dados.
-- Acesse a pasta "backend" e execute o comando "npm start" para iniciar a construção das tabelas e iniciar o serviço da API e backend.
+- Acesse o arquivo "backend/config/db.js" e altere a senha do banco de dados.
+- Acesse a pasta "backend" e execute o comando "npm install" e "npm start" para fazer download das dependências e iniciar a construção das tabelas e iniciar o serviço da API e backend.
 - Acesse a pasta "app" e execute o comando "flutter run".
 
 ### Considerações finais:
