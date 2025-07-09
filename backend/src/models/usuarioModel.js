@@ -11,9 +11,7 @@ const UsuarioModel = {
       );
       return result.rows[0];
     } catch (err) {
-      if (err.code === '23505') {  // Violação de unique constraint
-        throw new Error('Email ou CPF já cadastrado');
-      }
+      console.error('Erro ao criar usuário:', err);
       throw err;
     }
   },

@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:app/frontend/wigets/textFormFieldLogin.dart';
 import 'package:app/frontend/routes/routes.dart';
+import 'package:app/frontend/utils/validador.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -13,6 +16,29 @@ class _LoginState extends State<Login> {
   final emailController = TextEditingController();
   final senhaController = TextEditingController();
 
+  Future<void> login() async {
+    if (emailController.text.isEmpty || senhaController.text.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Preencha todos os campos.'), backgroundColor: Colors.redAccent,),
+      );
+      return;
+    }
+    final url = Uri.parse('http://10.0.2.2:3001/usuarios');
+    final response = await http.post(
+      url,  
+      headers: {'Content-Type': 'application/json'},
+      body: jsonEncode({
+        'email': emailController.text,
+        'senha': senhaController.text,
+      }),
+    );
+
+    if (response.statusCode == 200) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Login realizado com sucesso!'), backgroundColor: Colors.greenAccent,),
+      );
+    }
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
