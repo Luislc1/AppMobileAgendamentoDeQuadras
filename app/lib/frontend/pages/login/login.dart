@@ -1,6 +1,6 @@
-import 'package:app/frontend/wigets/appBar.dart';
 import 'package:flutter/material.dart';
 import 'package:app/frontend/wigets/textFormFieldLogin.dart';
+import 'package:app/frontend/routes/routes.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -70,7 +70,7 @@ class _LoginState extends State<Login> {
                             tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                             alignment: Alignment.centerLeft,
                           ),
-                          child: Text('Esqueceu a senha?'),
+                          child: Text('Esqueceu a senha?', style: TextStyle(color: const Color.fromARGB(255, 255, 0, 0)),),
                         ),
                       ],
                     ),
@@ -96,7 +96,10 @@ class _LoginState extends State<Login> {
               ),
             ),
             SizedBox(height: 60),
-            TextButton(onPressed: () {}, child: Text('Cadastre-se')),
+            TextButton(onPressed: (
+            ) {
+              Navigator.pushNamed(context, AppRoutes.cadastro);
+            }, child: Text('Ainda não possui uma conta? Cadastre-se', style: TextStyle(color: Colors.black),  )),
           ],
         ),
       ),

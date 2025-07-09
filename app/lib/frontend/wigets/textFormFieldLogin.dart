@@ -27,6 +27,9 @@ class CampoTexto extends StatelessWidget {
         obscureText: obscureText,
         keyboardType: keyboardType,
         decoration: InputDecoration(
+          labelStyle: const TextStyle(color: Colors.black),
+          hintStyle: const TextStyle(color: Colors.grey),
+          prefixIconColor: Colors.black,
           labelText: label,
           hintText: hint,
           prefixIcon: icon != null ? Icon(icon) : null,
